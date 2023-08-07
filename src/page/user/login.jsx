@@ -5,7 +5,6 @@ import "react-toastify/dist/ReactToastify.css";
 import Header from "../../components/Header";
 import { IMG_PATH } from "../../constant/path";
 import { LoginApi } from "../../services/api/api.Service";
-import { Navigate } from "react-router-dom";
 
 const Login = () => {
   const initialValues = {
@@ -63,7 +62,7 @@ const Login = () => {
             const token = e.token;
             localStorage.setItem("Token", token);
             setTimeout(() => {
-              <Navigate to="/dashboard" />;
+              window.location.href = "/dashboard";
             }, 1000);
           });
         })

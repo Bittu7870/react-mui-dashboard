@@ -2,10 +2,9 @@ import React from "react";
 import { useState } from "react";
 import { Box, Button, TextField } from "@mui/material";
 import { ToastContainer, toast } from "react-toastify";
+import Header from "../../components/Header";
+import { savePostApi } from "../../services/api/api.Service";
 import "react-toastify/dist/ReactToastify.css";
-import HorizontalLinearStepper from "./steper";
-import { savePostApi } from "../services/api/api.Service";
-import Header from "../components/Header";
 
 const SavePost = () => {
   const initialValues = {
@@ -99,7 +98,6 @@ const SavePost = () => {
   return (
     <Box m="20px">
       <Header title="PRODUCT ADD" subtitle="Welcome to product add form" />
-      <HorizontalLinearStepper />
       <form onSubmit={handleFormSubmit}>
         <Box
           display="grid"

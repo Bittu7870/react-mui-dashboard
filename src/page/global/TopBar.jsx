@@ -7,8 +7,8 @@ import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
 import NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutlined";
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
+import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
 import SearchIcon from "@mui/icons-material/Search";
-import { Link } from "react-router-dom";
 
 const TopBar = () => {
   const theme = useTheme();
@@ -17,7 +17,7 @@ const TopBar = () => {
 
   const Logout = () => {
     localStorage.clear();
-    window.location.reload();
+    window.location.href = "/";
   };
 
   return (
@@ -28,7 +28,7 @@ const TopBar = () => {
         backgroundColor={colors.primary[400]}
         borderRadius="4px"
       >
-        <InputBase sx={{ ml: 2, flex: 1, width: 250 }} placeholder="Search" />
+        <InputBase sx={{ ml: 2, flex: 1 }} placeholder="Search" />
         <IconButton type="button" sx={{ p: 1 }}>
           <SearchIcon />
         </IconButton>
@@ -49,9 +49,11 @@ const TopBar = () => {
           <SettingsOutlinedIcon />
         </IconButton>
         <IconButton>
-          <Link to="/login" onClick={Logout}>
-            <PersonOutlinedIcon />
-          </Link>
+          <PersonOutlinedIcon />
+        </IconButton>
+        <IconButton onClick={Logout}>
+          <LogoutOutlinedIcon />
+          Logout
         </IconButton>
       </Box>
     </Box>

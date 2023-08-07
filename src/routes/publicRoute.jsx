@@ -1,5 +1,4 @@
 import React from "react";
-import { Navigate } from "react-router-dom";
 
 const PublicRoute = ({ component: Component }) => {
   const token = localStorage.getItem("Token");
@@ -10,7 +9,7 @@ const PublicRoute = ({ component: Component }) => {
       </>
     );
   } else {
-    return <Navigate to="/dashboard" replace={true} />;
+    return (window.location.href = "/dashboard");
   }
 };
 

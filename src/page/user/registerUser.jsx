@@ -5,7 +5,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Header from "../../components/Header";
 import { IMG_PATH } from "../../constant/path";
 import { RegisterApi } from "../../services/api/api.Service";
-import OtpPopup from "../../forms/otpPopup";
+import OtpPopup from "../forms/otpPopup";
 
 const SignUp = () => {
   const initialValues = {
@@ -36,10 +36,10 @@ const SignUp = () => {
 
     const errors = {};
     if (!formValues.firstname) {
-      errors.firstname = toast("firstname Required");
+      errors.firstname = toast("Full name is Required");
     }
     if (!formValues.email) {
-      errors.email = toast("email Required");
+      errors.email = toast("Email is Required");
     } else if (
       !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(formValues.email)
     ) {
@@ -47,15 +47,15 @@ const SignUp = () => {
     }
 
     if (!formValues.pwd) {
-      errors.pwd = toast("Password Required");
+      errors.pwd = toast("Password is Required");
     } else if (!phoneRegExp.test(formValues.pwd)) {
       errors.pwd = toast("Phone number is not valid");
     }
     if (!formValues.reg_date) {
-      errors.reg_date = toast("reg_date Required");
+      errors.reg_date = toast("Date is Required");
     }
     if (!formValues.mobile) {
-      errors.mobile = toast("mobile Required");
+      errors.mobile = toast("Phone Number is Required");
     }
 
     setFormErrors(errors);
@@ -88,12 +88,12 @@ const SignUp = () => {
     ) {
       setFormErrors((prevErrors) => ({
         ...prevErrors,
-        [name]: "Invalid email address",
+        [name]: toast("Invalid email address"),
       }));
     } else if (name === "password" && !phoneRegExp.test(formValues[name])) {
       setFormErrors((prevErrors) => ({
         ...prevErrors,
-        [name]: "Password is not valid",
+        [name]: toast("Password is not valid"),
       }));
     } else {
       setFormErrors((prevErrors) => ({
