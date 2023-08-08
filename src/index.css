@@ -9,6 +9,7 @@ body,
   width: 100%;
   font-family: 'Source Sans 3', sans-serif;
 }
+li{list-style: none;}
 
 .app {display: flex; position: relative;}
 
@@ -30,3 +31,4 @@ body,
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+
